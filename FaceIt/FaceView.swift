@@ -8,15 +8,22 @@
 
 import UIKit
 
+@IBDesignable
 class FaceView: UIView {
 
-    var scale = CGFloat(0.8)
-    var color = UIColor.blueColor()
-    var lineWidth = CGFloat(5.0)
+    @IBInspectable
+    var scale: CGFloat = 0.8
+    @IBInspectable
+    var color: UIColor = UIColor.blueColor()
+    @IBInspectable
+    var lineWidth: CGFloat = 5.0
 
+    @IBInspectable
     var mouthCurvature: Double = 1.0
-    var eyesAreClosed = false
-    var eyeBrowTilt = -1.0
+    @IBInspectable
+    var eyesAreClosed: Bool = false
+    @IBInspectable
+    var eyeBrowTilt: Double = -1.0
 
 
     override func drawRect(rect: CGRect) {
