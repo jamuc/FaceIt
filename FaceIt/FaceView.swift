@@ -12,18 +12,18 @@ import UIKit
 class FaceView: UIView {
 
     @IBInspectable
-    var scale: CGFloat = 0.8
+    var scale: CGFloat = 0.8 { didSet { setNeedsDisplay() } }
     @IBInspectable
-    var color: UIColor = UIColor.blueColor()
+    var color: UIColor = UIColor.blueColor() { didSet { setNeedsDisplay() } }
     @IBInspectable
-    var lineWidth: CGFloat = 5.0
+    var lineWidth: CGFloat = 5.0 { didSet { setNeedsDisplay() } }
 
     @IBInspectable
-    var mouthCurvature: Double = 1.0
+    var mouthCurvature: Double = 1.0 { didSet { setNeedsDisplay() } }
     @IBInspectable
-    var eyesAreClosed: Bool = false
+    var eyesAreClosed: Bool = false { didSet { setNeedsDisplay() } }
     @IBInspectable
-    var eyeBrowTilt: Double = -1.0
+    var eyeBrowTilt: Double = -1.0 { didSet { setNeedsDisplay() } }
 
 
     override func drawRect(rect: CGRect) {
