@@ -10,19 +10,29 @@ import UIKit
 
 class FaceView: UIView {
 
-    let scale = CGFloat(0.8)
+    var scale = CGFloat(0.8)
+    var color = UIColor.blueColor()
+    var lineWidth = CGFloat(5.0)
+
     var mouthCurvature: Double = 1.0
     var eyesAreClosed = false
     var eyeBrowTilt = -1.0
 
+
     override func drawRect(rect: CGRect) {
-        pathForCenter(faceCenter, withRadius: faceRadius)
-            .stroke()
-        pathForEye(.Left).stroke()
-        pathForEye(.Right).stroke()
-        pathForBrow(.Left).stroke()
-        pathForBrow(.Right).stroke()
-        pathForMouth().stroke()
+        color.set()
+
+        for path in [
+                        pathForCenter(faceCenter, withRadius: faceRadius),
+                        pathForEye(.Left),
+                        pathForEye(.Right),
+                        pathForBrow(.Left),
+                        pathForBrow(.Right),
+                        pathForMouth()
+                    ] {
+                        path.lineWidth = lineWidth
+                        path.stroke()
+                      }
     }
 
     // private
@@ -40,8 +50,6 @@ class FaceView: UIView {
                             startAngle: 0.0,
                             endAngle: CGFloat(2*M_PI),
                             clockwise: false)
-        UIColor.blueColor().set()
-        path.lineWidth = 5.0
         return path
     }
 
@@ -61,7 +69,6 @@ class FaceView: UIView {
         let path = UIBezierPath()
         path.moveToPoint(browStart)
         path.addLineToPoint(browEnd)
-        path.lineWidth = 5.0
         return path
     }
 
@@ -92,7 +99,6 @@ class FaceView: UIView {
 
             path.moveToPoint(eyeStart)
             path.addLineToPoint(eyeEnd)
-            path.lineWidth = 2.0
             return path
         } else {
             return pathForCenter(eyeCenter, withRadius: eyeRadius)
@@ -118,9 +124,6 @@ class FaceView: UIView {
         let path = UIBezierPath()
         path.moveToPoint(start)
         path.addCurveToPoint(end, controlPoint1: cp1, controlPoint2: cp2)
-
-        UIColor.blueColor().set()
-        path.lineWidth = 5.0
 
         return path
     }
