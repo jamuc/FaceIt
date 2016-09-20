@@ -10,12 +10,48 @@ import UIKit
 
 class FaceViewController: UIViewController {
 
-    @IBOutlet weak var faceView: FaceView! { didSet { redrawUI() } }
+    @IBOutlet weak var faceView: FaceView! {
+        didSet {
+            redrawUI()
+            faceView.addGestureRecognizer(UIPinchGestureRecognizer(target: faceView, action: #selector(FaceView.scale(_:))))
+
+            var recognizer = UISwipeGestureRecognizer(target: self, action: #selector(FaceViewController.upSwipe(_:)))
+            recognizer.direction = .Up
+            faceView.addGestureRecognizer(recognizer)
+
+            recognizer = UISwipeGestureRecognizer(target: self, action: #selector(FaceViewController.downSwipe(_:)))
+            recognizer.direction = .Down
+            faceView.addGestureRecognizer(recognizer)
+
+        }
+    }
+
     var expression = FacialExpressions(eyes: FacialExpressions.Eyes.Open,
                                         brows: FacialExpressions.EyeBrows.Forrowed,
                                         mouth: FacialExpressions.Mouth.Smirk) {
         didSet {
             redrawUI()
+        }
+    }
+
+    @IBAction func tap(recognizer: UITapGestureRecognizer) {
+        if recognizer.state == .Ended {
+            switch expression.eyes {
+            case .Open: expression.eyes = .Closed
+            case .Closed: expression.eyes = .Open
+            }
+        }
+    }
+
+    func upSwipe(recognizer: UISwipeGestureRecognizer) {
+        if recognizer.state == .Ended {
+            expression.mouth = expression.mouth.agitateMouth()
+        }
+    }
+
+    func downSwipe(recognizer: UISwipeGestureRecognizer) {
+        if recognizer.state == .Ended {
+            expression.mouth = expression.mouth.relaxMouth()
         }
     }
 
