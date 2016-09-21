@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Emotions View Controller-->
+        <!--Emotions-->
         <scene sceneID="lVc-9b-P54">
             <objects>
                 <viewController id="T6P-J3-30a" customClass="EmotionsViewController" customModule="FaceIt" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,17 +50,18 @@
                             <constraint firstItem="UvU-pH-rhT" firstAttribute="centerY" secondItem="7kz-Xs-qgD" secondAttribute="centerY" id="Y7N-Dy-nvf"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Emotions" id="GVn-Nr-0Be"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cn1-Kp-4r0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="706" y="-326"/>
+            <point key="canvasLocation" x="1398.9751098096631" y="-326.3671875"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="ufC-DG-Zv2">
             <objects>
                 <splitViewController id="DZV-Ha-tOh" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="T6P-J3-30a" kind="relationship" relationship="masterViewController" id="hUs-fw-9mR"/>
+                        <segue destination="Cfa-7j-JNr" kind="relationship" relationship="masterViewController" id="hUs-fw-9mR"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="detailViewController" id="jAe-n6-Qli"/>
                     </connections>
                 </splitViewController>
@@ -113,6 +114,24 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="784" y="521"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="F7D-5C-H1h">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cfa-7j-JNr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xwL-wz-9nl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="T6P-J3-30a" kind="relationship" relationship="rootViewController" id="qlW-Ub-Rgs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xcd-cl-1hR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="705.85651537335275" y="-326.3671875"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
