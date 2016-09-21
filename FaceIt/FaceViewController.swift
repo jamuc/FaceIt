@@ -16,59 +16,59 @@ class FaceViewController: UIViewController {
             faceView.addGestureRecognizer(UIPinchGestureRecognizer(target: faceView, action: #selector(FaceView.scale(_:))))
 
             var recognizer = UISwipeGestureRecognizer(target: self, action: #selector(FaceViewController.upSwipe(_:)))
-            recognizer.direction = .Up
+            recognizer.direction = .up
             faceView.addGestureRecognizer(recognizer)
 
             recognizer = UISwipeGestureRecognizer(target: self, action: #selector(FaceViewController.downSwipe(_:)))
-            recognizer.direction = .Down
+            recognizer.direction = .down
             faceView.addGestureRecognizer(recognizer)
 
         }
     }
 
-    var expression = FacialExpressions(eyes: FacialExpressions.Eyes.Open,
-                                        brows: FacialExpressions.EyeBrows.Forrowed,
-                                        mouth: FacialExpressions.Mouth.Smirk) {
+    var expression = FacialExpressions(eyes: FacialExpressions.Eyes.open,
+                                        brows: FacialExpressions.EyeBrows.forrowed,
+                                        mouth: FacialExpressions.Mouth.smirk) {
         didSet {
             redrawUI()
         }
     }
 
-    @IBAction func tap(recognizer: UITapGestureRecognizer) {
-        if recognizer.state == .Ended {
+    @IBAction func tap(_ recognizer: UITapGestureRecognizer) {
+        if recognizer.state == .ended {
             switch expression.eyes {
-            case .Open: expression.eyes = .Closed
-            case .Closed: expression.eyes = .Open
+            case .open: expression.eyes = .closed
+            case .closed: expression.eyes = .open
             }
         }
     }
 
-    func upSwipe(recognizer: UISwipeGestureRecognizer) {
-        if recognizer.state == .Ended {
+    func upSwipe(_ recognizer: UISwipeGestureRecognizer) {
+        if recognizer.state == .ended {
             expression.mouth = expression.mouth.agitateMouth()
         }
     }
 
-    func downSwipe(recognizer: UISwipeGestureRecognizer) {
-        if recognizer.state == .Ended {
+    func downSwipe(_ recognizer: UISwipeGestureRecognizer) {
+        if recognizer.state == .ended {
             expression.mouth = expression.mouth.relaxMouth()
         }
     }
 
-    private var eyebBrowTilt = [FacialExpressions.EyeBrows.Happy: 1.0,
-                                .Normal: 0.0,
-                                .Forrowed: -1.0]
+    fileprivate var eyebBrowTilt = [FacialExpressions.EyeBrows.happy: 1.0,
+                                .normal: 0.0,
+                                .forrowed: -1.0]
 
-    private var mouthCurvature = [FacialExpressions.Mouth.Sad: -1.0,
-                                  .Dissapointed: -0.5,
-                                  .Neutral: 0.0,
-                                  .Smirk: 0.5,
-                                  .Smile: 1.0]
+    fileprivate var mouthCurvature = [FacialExpressions.Mouth.sad: -1.0,
+                                  .dissapointed: -0.5,
+                                  .neutral: 0.0,
+                                  .smirk: 0.5,
+                                  .smile: 1.0]
 
-    private func redrawUI() {
+    fileprivate func redrawUI() {
         switch expression.eyes {
-        case .Open: faceView.eyesAreClosed = false
-        case .Closed: faceView.eyesAreClosed = true
+        case .open: faceView.eyesAreClosed = false
+        case .closed: faceView.eyesAreClosed = true
         }
 
         faceView.eyeBrowTilt = eyebBrowTilt[expression.brows] ?? 0.0

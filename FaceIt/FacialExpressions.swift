@@ -15,30 +15,30 @@ struct FacialExpressions {
     var mouth: Mouth
 
     enum Eyes: Int {
-        case Open, Closed
+        case open, closed
     }
 
     enum EyeBrows: Int {
-        case Happy, Normal, Forrowed
+        case happy, normal, forrowed
 
         func relaxEyeBrows() -> EyeBrows {
-            return EyeBrows(rawValue: rawValue - 1) ?? .Happy
+            return EyeBrows(rawValue: rawValue - 1) ?? .happy
         }
 
         func agitateEyeBrows() -> EyeBrows {
-            return EyeBrows(rawValue: rawValue + 1) ?? .Forrowed
+            return EyeBrows(rawValue: rawValue + 1) ?? .forrowed
         }
     }
 
     enum Mouth: Int {
-        case Sad, Dissapointed, Neutral, Smirk, Smile
+        case sad, dissapointed, neutral, smirk, smile
 
         func relaxMouth() -> Mouth {
-            return Mouth(rawValue: rawValue + 1) ?? .Smile
+            return Mouth(rawValue: rawValue + 1) ?? .smile
         }
 
         func agitateMouth() -> Mouth {
-            return Mouth(rawValue: rawValue - 1) ?? .Sad
+            return Mouth(rawValue: rawValue - 1) ?? .sad
         }
     }
 }
