@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D14AB651D9310BD00A45ED7 /* EmotionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D14AB641D9310BD00A45ED7 /* EmotionsViewController.swift */; };
 		7D7A517E1D8FDFFD00C00F62 /* FacialExpressions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7A517D1D8FDFFD00C00F62 /* FacialExpressions.swift */; };
 		7DE6BB8B1D856ACA00304E33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE6BB8A1D856ACA00304E33 /* AppDelegate.swift */; };
 		7DE6BB8D1D856ACA00304E33 /* FaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE6BB8C1D856ACA00304E33 /* FaceViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D14AB641D9310BD00A45ED7 /* EmotionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionsViewController.swift; sourceTree = "<group>"; };
 		7D7A517D1D8FDFFD00C00F62 /* FacialExpressions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacialExpressions.swift; sourceTree = "<group>"; };
 		7DE6BB871D856ACA00304E33 /* FaceIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DE6BB8A1D856ACA00304E33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				7DE6BB9C1D856AD600304E33 /* Support Files */,
 				7DE6BB8C1D856ACA00304E33 /* FaceViewController.swift */,
 				7DE6BB8E1D856ACA00304E33 /* Main.storyboard */,
+				7D14AB641D9310BD00A45ED7 /* EmotionsViewController.swift */,
 				7D7A517D1D8FDFFD00C00F62 /* FacialExpressions.swift */,
 				7DE6BB9D1D856B3800304E33 /* FaceView.swift */,
 			);
@@ -105,7 +108,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Jason Franklin";
 				TargetAttributes = {
 					7DE6BB861D856ACA00304E33 = {
@@ -152,6 +155,7 @@
 			files = (
 				7DE6BB8D1D856ACA00304E33 /* FaceViewController.swift in Sources */,
 				7DE6BB8B1D856ACA00304E33 /* AppDelegate.swift in Sources */,
+				7D14AB651D9310BD00A45ED7 /* EmotionsViewController.swift in Sources */,
 				7DE6BB9E1D856B3800304E33 /* FaceView.swift in Sources */,
 				7D7A517E1D8FDFFD00C00F62 /* FacialExpressions.swift in Sources */,
 			);
@@ -193,8 +197,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -239,8 +245,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -259,6 +267,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

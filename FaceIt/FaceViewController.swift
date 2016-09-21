@@ -66,13 +66,15 @@ class FaceViewController: UIViewController {
                                   .smile: 1.0]
 
     fileprivate func redrawUI() {
-        switch expression.eyes {
-        case .open: faceView.eyesAreClosed = false
-        case .closed: faceView.eyesAreClosed = true
-        }
+        if faceView != nil {
+            switch expression.eyes {
+            case .open: faceView.eyesAreClosed = false
+            case .closed: faceView.eyesAreClosed = true
+            }
 
-        faceView.eyeBrowTilt = eyebBrowTilt[expression.brows] ?? 0.0
-        faceView.mouthCurvature = mouthCurvature[expression.mouth] ?? 0.0
+            faceView.eyeBrowTilt = eyebBrowTilt[expression.brows] ?? 0.0
+            faceView.mouthCurvature = mouthCurvature[expression.mouth] ?? 0.0
+        }
     }
 }
 
